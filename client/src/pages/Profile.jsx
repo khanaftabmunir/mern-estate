@@ -21,6 +21,10 @@ export default function Profile() {
       handleFileUpload(file);
     }
   }, [file]);
+  // allow read;
+  // allow write: if
+  // request.resource.size < 2 * 1024 * 1024 &&
+  // request.resource.contentType.matches('image/.*')
 
   const handleFileUpload = (file) => {
     const storage = getStorage(app);
@@ -51,6 +55,7 @@ export default function Profile() {
     <div className='p-3 max-w-lg mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
       <form className='flex flex-col gap-4'>
+        
         <input
         onChange={(e) => setFile(e.target.files[0])}
          type="file" ref={fileRef} hidden accept='image/*'/>
